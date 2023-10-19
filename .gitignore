@@ -127,7 +127,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+notebook
+.csv
 # Spyder project settings
 .spyderproject
 .spyproject
