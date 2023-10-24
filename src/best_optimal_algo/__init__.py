@@ -11,12 +11,14 @@ class BestOptimalAlgo:
     
     def best_optimal_algo(self):
         
-        dataframe = evaluate_models(X_train=self.X_train,y_train=self.y_train,X_test=self.X_test,y_test=self.y_test)
+        model, params = evaluate_models(X_train=self.X_train,y_train=self.y_train,X_test=self.X_test,y_test=self.y_test)
         
-        ## To get best model score from dict
         # best_model_score = max(sorted(model_report.values()))
 
         ## To get best model name from dict
         # best_model_name = list(model_report.keys())[list(model_report.values()).index(best_model_score)]
         
-        return dataframe
+        print(model)
+        for p in params['Parameters']:
+            #print(list(zip(p.keys(),p.values())))
+            print(p)

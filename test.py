@@ -11,7 +11,7 @@ Y = dataset[["class"]]
 
 X_tr, X_t, y_tr, y_t = train_test_split(X, Y, test_size=0.2, random_state=42)
 
-dataframe = pd.DataFrame()
+model = params = pd.DataFrame()
 best_model = []
 
 
@@ -19,10 +19,18 @@ algo = BestOptimalAlgo(X_train=X_tr,X_test=X_t, y_test=y_t, y_train=y_tr)
 
 # startTime = datetime.now()
 
-dataframe = algo.best_optimal_algo()
+algo.best_optimal_algo()
 
 # endTime =  datetime.now()
 
-print("Report : ", dataframe)
+# print(model)
+# print("\n ------------------------------------------------------------")
+# print("Applied Parameters : ")
+# print("\n")
+# print(params['Parameters'])
+
+# for p in params['Parameters']:
+#     #print(list(zip(p.keys(),p.values())))
+#     print(p)
 # print("Best model : ", best_model)
 # print("Duration :", startTime-endTime)

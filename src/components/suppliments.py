@@ -9,9 +9,9 @@ from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_sc
 import numpy
 
 models = {
-    "Logistic Regression": LogisticRegression(),
-    "K-Nearest Neighbors": KNeighborsClassifier(),
-    "Support Vector": SVC(),
+    # "Logistic Regression": LogisticRegression(),
+    # "K-Nearest Neighbors": KNeighborsClassifier(),
+    # "Support Vector": SVC(),
     "Decision Tree": DecisionTreeClassifier(),
     "Random Forest": RandomForestClassifier(),
     "XGB": XGBClassifier(), 
@@ -21,14 +21,14 @@ models = {
 }
 
 params={    
-            "Logistic Regression":{},   
+            # "Logistic Regression":{},   
             
-            "K-Nearest Neighbors":{ 
-                'n_neighbors' : [5,7,9,11,13,15],
-                'weights' : ['uniform','distance'],
-                'metric' : ['minkowski','euclidean','manhattan']},
+            # "K-Nearest Neighbors":{ 
+            #     'n_neighbors' : [5,7,9,11,13,15],
+            #     'weights' : ['uniform','distance'],
+            #     'metric' : ['minkowski','euclidean','manhattan']},
             
-            "Support Vector": {},
+            # "Support Vector": {},
      
             "Decision Tree":{
                 'max_depth':[3,5,7,10,15],
@@ -42,7 +42,6 @@ params={
                 'n_estimators': [8,16,32,64,128,256]
                 },
 
-            
             "XGB":{
                 'learning_rate':[.1,.01,.05,.001],
                 'n_estimators': [8,16,32,64,128,256]
