@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from src.best_optimal_algo import BestOptimalAlgo
 # from datetime import datetime
 
-dataset = pd.read_csv("notebook/data.csv")
+dataset = pd.read_csv("notebook/sample_data.csv")
 
 X = dataset.drop(["class"], axis=1)
 Y = dataset[["class"]]
@@ -18,8 +18,8 @@ best_model = []
 algo = BestOptimalAlgo(X_train=X_tr,X_test=X_t, y_test=y_t, y_train=y_tr)
 
 # startTime = datetime.now()
-
 algo.best_optimal_algo()
+
 
 # endTime =  datetime.now()
 

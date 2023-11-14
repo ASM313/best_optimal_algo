@@ -32,13 +32,18 @@ def evaluate_models(X_train, y_train,X_test,y_test):
 
             eval_metric: list = metrics(y_test, y_test_pred)
 
-            accuracies.append(eval_metric[0])
-            f1Score.append(eval_metric[1])
-            precisionScore.append(eval_metric[2])
-            recallScore.append(eval_metric[3])
-            applied_params.append(para)
+            if eval_metric[0]==1:
+                continue
+            else:
+                accuracies.append(eval_metric[0])
+                f1Score.append(eval_metric[1])
+                precisionScore.append(eval_metric[2])
+                recallScore.append(eval_metric[3])
+                applied_params.append(para)
+                
 
-            model_score = pd.DataFrame(list(zip( accuracies, f1Score, precisionScore, recallScore, applied_params)), columns=['Accuracy', 'F1-score', 'Precision', 'Recall', 'Parameters']).sort_values(by=["Accuracy"],ascending=False)
+            
+            model_score = pd.DataFrame(list(zip( accuracies, f1Score, precisionScore, recallScore)), columns=['Accuracy', 'F1-score', 'Precision', 'Recall']).sort_values(by=["Accuracy"],ascending=False)
 
             report[list(models.keys())[i]] = model_score
 
@@ -46,6 +51,8 @@ def evaluate_models(X_train, y_train,X_test,y_test):
 
             param_summary = pd.DataFrame(list(zip(models, accuracies, applied_params)), columns=['Model Name', 'Accuracy', 'Parameters']).sort_values(by=["Accuracy"],ascending=False)
 
-        return model_summary, param_summary
+
+
+        return model_score
     except Exception as e:
         print(e)
